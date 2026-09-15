@@ -1,0 +1,992 @@
+{
+  "_comment": "Resu Labrador, tienda taller de ceramica, Calle Pilar de Zaragoza 84, La Guindalera, Madrid. Rebuilt on 2026-09-15 from Irene's own reply, which asked for the web renewed plus bookings, cancellations and recuperaciones managed from it, and named the two things timp, vi-day and theceramicapp get wrong: make ups have to be counted in HOURS, and a pack has to stay at 4 days a month even when the month has 5 of that weekday. The engine gained a studio model for it (src/engine/studio.ts): the taller opens in 3 hour blocks, each block holds two different seat types, and a pack is four of those blocks inside one calendar month. PUBLISHED FACTS used verbatim and nothing else: the two course prices 110 and 145 euros for the pack of 4 classes a month of 2 and of 3 hours, read off her own table on https://resulabrador.com/clases/curso-de-ceramica; the opening hours, afternoons Monday to Friday 18:00 to 21:00 and mornings Tuesday to Thursday 10:30 to 13:30, from her own footer and classes page; the group size of up to 8 people for the talleres, published on her home page and on /talleres; the four photographs, all hers. HER OWN WORDS from the reply of 2026-09-15, marked on screen as what she told us rather than as something published: 3 wheel places and 11 modelling places per class, Monday to Friday; single class on weekdays and Saturdays; coworking by table with 3 tables and 3 wheels, Monday and Friday mornings, Saturdays and Sundays; special workshops Friday, Saturday and Sunday; make ups counted in hours; the pack limited to 4 days a month; payment through the app, a reminder at the start of the month and invoices. EVERYTHING ELSE IS AN EXAMPLE and says so on the screen it appears on: the single class, coworking and workshop prices (she publishes none), the exact times of the Saturday and Sunday blocks, the 24 hour cancellation window, the 2 month expiry of the hours balance, the 10 euro extra hour, the four seeded workshops and every seeded place.",
+  "slug": "resu-labrador",
+  "kind": "session",
+  "realBrand": true,
+  "bookingMode": "instant",
+  "_comment_bookingMode": "Instant, because she asked for payment through the app. The August demo was in request mode, on the strength of her own page saying 'Los pagos se realizan en la primera clase de cada mes'. Her reply of 2026-09-15 supersedes that: she wants to charge from the site and to send a reminder at the start of the month. The charge is SIMULATED and every screen that shows money says so.",
+  "brand": {
+    "name": "Resu Labrador",
+    "tagline": {
+      "es": "Tienda taller de cerámica en La Guindalera, Madrid. Clases y talleres para todos los niveles"
+    },
+    "primary": "#322A11",
+    "accent": "#D6AE57",
+    "fontPairing": "modern",
+    "_comment_colours": "#D6AE57 is hers literally: the link and button colour set in her own theme options, 24 times in the markup of her live pages. #322A11 is a dark brown chosen to sit under that gold and is the palette she has already seen in the August demo. Montserrat over Roboto on her site maps to the 'modern' pairing, the only geometric sans of the three the engine ships."
+  },
+  "currency": "EUR",
+  "languages": [
+    "es"
+  ],
+  "_comment_languages": "Spanish only and in tu, because her whole site is in tu and Irene writes to us in tu. Every word of the studio surface is written here or in src/studio, none of it comes from the engine's shipped Spanish, which speaks usted.",
+  "depositPercent": 100,
+  "waitlist": true,
+  "units": [],
+  "_comment_units": "Empty on purpose. A studio config books generated sittings, not units, so the schema allows the empty array only when a studio block is present. Leaving the four old units here would mean two sets of prices in one file, one of them dead.",
+  "studio": {
+    "seatTypes": [
+      {
+        "id": "torno",
+        "one": "plaza de torno",
+        "many": "plazas de torno"
+      },
+      {
+        "id": "modelado",
+        "one": "plaza de modelado",
+        "many": "plazas de modelado"
+      },
+      {
+        "id": "cw-mesa",
+        "one": "mesa",
+        "many": "mesas"
+      },
+      {
+        "id": "cw-torno",
+        "one": "torno",
+        "many": "tornos"
+      },
+      {
+        "id": "plaza",
+        "one": "plaza",
+        "many": "plazas"
+      }
+    ],
+    "window": {
+      "from": "2026-09-15",
+      "to": "2026-12-31"
+    },
+    "packMonths": [
+      "2026-10",
+      "2026-11",
+      "2026-12"
+    ],
+    "packSize": 4,
+    "_comment_packMonths": "October, November and December 2026. October has 5 Thursdays and 5 Fridays and December has 5 Wednesdays, which is exactly the case she named, so the 4 per month rule is visible in the default month rather than only in theory.",
+    "closedDates": [
+      "2026-10-12",
+      "2026-11-01",
+      "2026-11-09",
+      "2026-12-06",
+      "2026-12-08",
+      "2026-12-24",
+      "2026-12-25",
+      "2026-12-31"
+    ],
+    "_comment_closedDates": "EXAMPLE, and the screen says so. The festivos that fall on a day the taller would otherwise open (12 de octubre, la Almudena el 9 de noviembre, el 1 de noviembre y el 6 de diciembre que caen en domingo de coworking, la Inmaculada el 8 de diciembre) plus Nochebuena, Navidad y Nochevieja. Without this the calendar offered a 18:00 class on 25 December, which is the first thing a Madrid owner would notice. She replaces the list with her own.",
+    "patterns": [
+      {
+        "id": "clase-manana",
+        "activity": "clase",
+        "weekdays": [
+          2,
+          3,
+          4
+        ],
+        "start": "10:30",
+        "end": "13:30",
+        "seats": [
+          {
+            "type": "torno",
+            "capacity": 3
+          },
+          {
+            "type": "modelado",
+            "capacity": 11
+          }
+        ],
+        "_comment": "Her published mornings: martes, miercoles y jueves de 10:30 a 13:30."
+      },
+      {
+        "id": "clase-tarde",
+        "activity": "clase",
+        "weekdays": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "start": "18:00",
+        "end": "21:00",
+        "seats": [
+          {
+            "type": "torno",
+            "capacity": 3
+          },
+          {
+            "type": "modelado",
+            "capacity": 11
+          }
+        ],
+        "_comment": "Her published afternoons: de lunes a viernes de 18:00 a 21:00."
+      },
+      {
+        "id": "clase-sabado",
+        "activity": "clase",
+        "weekdays": [
+          6
+        ],
+        "start": "18:00",
+        "end": "21:00",
+        "seats": [
+          {
+            "type": "torno",
+            "capacity": 3
+          },
+          {
+            "type": "modelado",
+            "capacity": 11
+          }
+        ],
+        "packEligible": false,
+        "_comment": "She said clase suelta runs on weekdays and Saturdays, and that the pack is Monday to Friday, so the Saturday block exists but a pack may not use it. The TIME is an example: she published no Saturday hours."
+      },
+      {
+        "id": "coworking",
+        "activity": "coworking",
+        "weekdays": [
+          1,
+          5,
+          6,
+          0
+        ],
+        "start": "10:30",
+        "end": "13:30",
+        "seats": [
+          {
+            "type": "cw-mesa",
+            "capacity": 3
+          },
+          {
+            "type": "cw-torno",
+            "capacity": 3
+          }
+        ],
+        "_comment": "Coworking Monday and Friday mornings, Saturdays and Sundays, her words. It lands on the two mornings her own class timetable leaves free, which is presumably why she runs it then. The Saturday and Sunday times are an example.",
+        "packEligible": false
+      }
+    ],
+    "sessions": [
+      {
+        "id": "workshop-esmaltes",
+        "activity": "workshop",
+        "date": "2026-10-16",
+        "start": "18:00",
+        "end": "21:00",
+        "seats": [
+          {
+            "type": "plaza",
+            "capacity": 8
+          }
+        ],
+        "label": "Workshop de esmaltes",
+        "description": "Un encuentro de cerámica para grupos de hasta 8 personas. Modeláis vuestras propias piezas o decoráis piezas ya creadas, y todo se recoge en la tienda taller una vez cocido. El precio que ves es un ejemplo: tus talleres no llevan precio publicado.",
+        "priceCents": 4000,
+        "image": "images/taller-adultos.jpg"
+      },
+      {
+        "id": "workshop-torno",
+        "activity": "workshop",
+        "date": "2026-10-31",
+        "start": "18:00",
+        "end": "21:00",
+        "seats": [
+          {
+            "type": "plaza",
+            "capacity": 8
+          }
+        ],
+        "label": "Workshop de iniciación al torno",
+        "description": "Un encuentro de cerámica para grupos de hasta 8 personas. Modeláis vuestras propias piezas o decoráis piezas ya creadas, y todo se recoge en la tienda taller una vez cocido. El precio que ves es un ejemplo: tus talleres no llevan precio publicado.",
+        "priceCents": 4000,
+        "image": "images/curso.jpg"
+      },
+      {
+        "id": "workshop-infantil",
+        "activity": "workshop",
+        "date": "2026-11-15",
+        "start": "18:00",
+        "end": "21:00",
+        "seats": [
+          {
+            "type": "plaza",
+            "capacity": 8
+          }
+        ],
+        "label": "Workshop infantil, a partir de 8 años",
+        "description": "Taller de cerámica para niñas y niños a partir de 8 años, en grupos de hasta 8. Prueban formas, texturas y colores, y las piezas se cuecen y se esmaltan para recogerlas después en la tienda taller. El precio que ves es un ejemplo: tus talleres no llevan precio publicado.",
+        "priceCents": 2500,
+        "image": "images/taller-infantil.jpg"
+      },
+      {
+        "id": "workshop-navidad",
+        "activity": "workshop",
+        "date": "2026-12-11",
+        "start": "18:00",
+        "end": "21:00",
+        "seats": [
+          {
+            "type": "plaza",
+            "capacity": 8
+          }
+        ],
+        "label": "Workshop de piezas para regalar",
+        "description": "Un encuentro de cerámica para grupos de hasta 8 personas. Modeláis vuestras propias piezas o decoráis piezas ya creadas, y todo se recoge en la tienda taller una vez cocido. El precio que ves es un ejemplo: tus talleres no llevan precio publicado.",
+        "priceCents": 4000,
+        "image": "images/vajilla-3.jpg"
+      }
+    ],
+    "programs": [
+      {
+        "id": "curso",
+        "mode": "pack",
+        "activity": "clase",
+        "name": "Curso mensual",
+        "tagline": "Pack de 4 clases al mes",
+        "image": "images/curso.jpg",
+        "description": "Empiezas por las técnicas básicas para modelar piezas sencillas, churros, planchas, pellizco y colada, y poco a poco llegas al torno. Las herramientas y los materiales están incluidos, y las piezas que hagas te las llevas a casa. Eliges el mes, si vienes 2 o 3 horas por clase, y si quieres plaza de torno o de modelado.",
+        "seatTypes": [
+          "torno",
+          "modelado"
+        ],
+        "modalities": [
+          {
+            "id": "2h",
+            "name": "2 horas por clase",
+            "hours": 2,
+            "priceCents": 11000,
+            "realPrice": true,
+            "note": "El pack de 4 clases de 2 horas, tal y como lo tienes en tu web."
+          },
+          {
+            "id": "3h",
+            "name": "3 horas por clase",
+            "hours": 3,
+            "priceCents": 14500,
+            "realPrice": true,
+            "note": "El pack de 4 clases de 3 horas, tal y como lo tienes en tu web."
+          }
+        ],
+        "notice": "Los dos precios son los que tienes publicados hoy en tu web."
+      },
+      {
+        "id": "suelta",
+        "mode": "single",
+        "activity": "clase",
+        "name": "Clase suelta",
+        "tagline": "Una clase, sin pack",
+        "image": "images/vajilla-1.jpg",
+        "description": "Una sola clase, entre semana o el sábado, en el mismo taller y con las mismas plazas de torno y de modelado que el curso. Sirve para probar, para volver después de una temporada o para regalarla.",
+        "seatTypes": [
+          "torno",
+          "modelado"
+        ],
+        "modalities": [
+          {
+            "id": "2h",
+            "name": "2 horas",
+            "hours": 2,
+            "priceCents": 3000,
+            "note": "Precio de ejemplo, tú no publicas ninguno."
+          },
+          {
+            "id": "3h",
+            "name": "3 horas",
+            "hours": 3,
+            "priceCents": 4000,
+            "note": "Precio de ejemplo, tú no publicas ninguno."
+          }
+        ],
+        "notice": "Los precios de la clase suelta son un ejemplo, y la hora del sábado también, porque no la tienes publicada. Dinos las tuyas y se cambian en un minuto."
+      },
+      {
+        "id": "coworking",
+        "mode": "single",
+        "activity": "coworking",
+        "name": "Coworking",
+        "tagline": "Por mesa o por torno",
+        "image": "images/taller-adultos.jpg",
+        "description": "Vienes con tu proyecto y trabajas en el taller. Hay 3 mesas y 3 tornos, y reservas el puesto que necesitas. Lunes y viernes por la mañana, sábados y domingos.",
+        "seatTypes": [
+          "cw-mesa",
+          "cw-torno"
+        ],
+        "modalities": [
+          {
+            "id": "mesa",
+            "name": "Mesa de trabajo",
+            "hours": 3,
+            "priceCents": 1500,
+            "seatType": "cw-mesa",
+            "note": "Precio de ejemplo"
+          },
+          {
+            "id": "torno",
+            "name": "Torno",
+            "hours": 3,
+            "priceCents": 2000,
+            "seatType": "cw-torno",
+            "note": "Precio de ejemplo"
+          }
+        ],
+        "notice": "Los precios del coworking son un ejemplo, y la hora de los sábados y los domingos también. Los días y los puestos, 3 mesas y 3 tornos, son los que nos contaste."
+      },
+      {
+        "id": "workshop",
+        "mode": "single",
+        "activity": "workshop",
+        "name": "Workshops",
+        "tagline": "Viernes, sábados y domingos",
+        "image": "images/taller-infantil.jpg",
+        "description": "Los talleres especiales de fin de semana, cada uno con su fecha, su tema y sus plazas. Grupos de hasta 8 personas, que es el tamaño que tienes publicado.",
+        "seatTypes": [
+          "plaza"
+        ],
+        "notice": "Los días son los que nos contaste, de viernes a domingo. Los cuatro workshops de este calendario, sus temas y sus precios son un ejemplo, para que veas cómo se venderían."
+      }
+    ],
+    "makeup": {
+      "cancelNoticeHours": 24,
+      "expiryMonths": 2,
+      "extraHourPriceCents": 1000
+    },
+    "_comment_makeup": "Every number here is an example and the screen says so. She set no window, no expiry and no price for the extra hour.",
+    "billing": {
+      "reminderDayOfMonth": 1,
+      "reminderSubject": "Tu cuota de {mes} en Resu Labrador",
+      "reminderBody": "Hola {nombre}, el {fecha} se renueva tu pack de 4 clases de {horas} cada una y se te pasa la cuota de {importe}. Si quieres cambiar de modalidad, saltarte el mes o dejarlo, contéstame a este correo y lo arreglamos. Un abrazo, Resu.",
+      "invoicePrefix": "RL",
+      "invoiceIssuer": "Resu Labrador, Calle Pilar de Zaragoza 84, La Guindalera, Madrid",
+      "invoiceNote": "Factura de ejemplo. Faltan tu NIF y tus datos fiscales, que no están publicados en tu web."
+    },
+    "seeded": {
+      "2026-10-01": {
+        "18:00": {
+          "torno": 2,
+          "modelado": 5
+        }
+      },
+      "2026-10-02": {
+        "10:30": {
+          "cw-mesa": 1,
+          "cw-torno": 1
+        }
+      },
+      "2026-10-08": {
+        "18:00": {
+          "torno": 1,
+          "modelado": 7
+        }
+      },
+      "2026-10-10": {
+        "18:00": {
+          "torno": 3,
+          "modelado": 6
+        }
+      },
+      "2026-10-14": {
+        "18:00": {
+          "torno": 2,
+          "modelado": 10
+        }
+      },
+      "2026-10-15": {
+        "10:30": {
+          "torno": 2,
+          "modelado": 4
+        }
+      },
+      "2026-10-16": {
+        "18:00": {
+          "plaza": 5
+        }
+      },
+      "2026-10-17": {
+        "18:00": {
+          "torno": 3,
+          "modelado": 11
+        }
+      },
+      "2026-10-19": {
+        "10:30": {
+          "cw-mesa": 1,
+          "cw-torno": 3
+        }
+      },
+      "2026-10-21": {
+        "18:00": {
+          "torno": 2,
+          "modelado": 6
+        }
+      },
+      "2026-10-22": {
+        "18:00": {
+          "torno": 2,
+          "modelado": 9
+        }
+      },
+      "2026-10-24": {
+        "10:30": {
+          "cw-mesa": 2
+        }
+      },
+      "2026-10-31": {
+        "18:00": {
+          "plaza": 2
+        }
+      },
+      "2026-11-04": {
+        "18:00": {
+          "torno": 1,
+          "modelado": 3
+        }
+      },
+      "2026-11-15": {
+        "18:00": {
+          "plaza": 6
+        }
+      },
+      "2026-12-11": {
+        "18:00": {
+          "plaza": 3
+        }
+      }
+    },
+    "_comment_seeded": "Seeded places, all of them examples, chosen so the screens tell a story without ever breaking a monthly pack. The Saturday of 10 October has the 3 wheels gone and 5 modelling places free, which is the whole point of counting the two separately; the Saturday of 17 October is completely full so the waiting list appears; 19 October has the 3 coworking wheels gone and 2 tables free; several weekday evenings are down to their last wheel. NOTHING PACK ELIGIBLE IS SEEDED TO ZERO OF A SEAT TYPE, on purpose and under test: pre selection skips a class the student could not get into, and a month with only four of her weekday would then hand her a pack of three. The two fully taken classes are therefore both Saturdays, which the pack may not use anyway.",
+    "notices": {
+      "demo": "Demostración privada para Resu Labrador. Nada de lo que hagas aquí reserva, cobra ni envía nada.",
+      "yours": "Tuyo, publicado",
+      "example": "Ejemplo",
+      "toldUs": "Lo que nos contaste",
+      "packRule": "El pack son 4 clases al mes. Cuando eliges tu día se marcan las 4 primeras de ese mes. Si el mes tiene 5, la quinta se ve pero no entra: puedes cambiar a cuál vienes, no sumar una más.",
+      "closedRule": "Los días cerrados son un ejemplo. Hemos quitado los festivos que caen en día de taller y el 24, el 25 y el 31 de diciembre. Tú pones los tuyos y el calendario se cierra solo, sin tocar nada más.",
+      "packShort": "Este mes tu día no llega a 4 clases: hay un festivo o un workshop por medio. Marca la que falta en cualquier otro día del mes y el pack se queda en 4, por el mismo precio.",
+      "seatsSeededPanel": "Las plazas ocupadas que ves en las barras están puestas a mano, para que se entienda cómo se llena una clase. Por eso cuentan pero no traen nombre: los nombres serían los de quien reserve desde la web.",
+      "packSwapHint": "Toca una clase marcada para quitarla y otra cualquiera del mes para ponerla en su lugar.",
+      "hoursRule": "Las recuperaciones se cuentan en horas, no en clases. Si anulas una clase con 24 horas o más de aviso, las horas de esa clase se te quedan en el saldo: 2 horas si vienes 2 y 3 horas si vienes 3. Luego las gastas apuntándote a cualquier clase posterior, del mes que sea, mientras queden plazas. El taller abre en bloques de 3 horas, así que con 2 horas de saldo te quedas las 2 primeras horas del bloque; si quieres quedarte también la tercera, se paga aparte.",
+      "hoursExample": "El plazo de 24 horas para anular, los 2 meses de caducidad del saldo y los 10 € de la hora extra son un ejemplo. Y la regla de quedarse 2 horas dentro de un bloque de 3 es una propuesta nuestra, no algo que nos dijeras: si prefieres que quien viene 2 horas se quede el bloque entero sin pagar nada más, o que 3 horas de saldo den derecho a una clase larga y media corta, se cambia en un minuto. Dinos cómo lo quieres tú y lo ajustamos.",
+      "paymentSimulated": "Pago simulado. Esta pantalla comprueba el formato de los números y nada más: no se transmite ningún dato, no se guarda ninguna tarjeta y no se cobra ni un euro.",
+      "reminderSimulated": "Así se vería el aviso que le llega a primeros de mes, cuando se renueva el pack. Es una vista previa: desde esta demostración no sale ningún correo.",
+      "invoiceSimulated": "Así se vería la factura. Es una vista previa con datos de ejemplo: faltan tu NIF y tus datos fiscales, y desde esta demostración no se emite ni se envía nada.",
+      "seatsSeeded": "Las plazas ocupadas que ves están puestas a mano para que se entienda cómo se llena una clase y cómo aparece la lista de espera. Las de verdad las pones tú.",
+      "ownerPanel": "Este es el panel desde el que lo llevarías tú. En la versión final se entra con tu usuario y tu contraseña; aquí está abierto para que lo puedas mirar. Empieza vacío a propósito: reserva algo desde la web y vuelve, y lo verás aparecer aquí.",
+      "policy": "Cómo funciona esta demostración. Los precios del curso son los tuyos, los que tienes publicados hoy: 110 € al mes el pack de 4 clases de 2 horas y 145 € el de 3 horas. El horario también es el tuyo: tardes de lunes a viernes de 18:00 a 21:00 y mañanas de martes a jueves de 10:30 a 13:30. Las 3 plazas de torno y las 11 de modelado por clase, la clase suelta entre semana y sábados, el coworking por mesa con 3 mesas y 3 tornos los lunes y viernes por la mañana y los fines de semana, los workshops de viernes a domingo y las recuperaciones en horas son lo que nos contaste el 15 de septiembre. Todo lo demás es un ejemplo y lleva su aviso: los precios de la clase suelta, del coworking y de los workshops, que tú no publicas; las horas exactas de los bloques del fin de semana; los días que damos por cerrados, que son los festivos y el 24, el 25 y el 31 de diciembre; el plazo de 24 horas para anular, los 2 meses de caducidad del saldo y los 10 € de la hora extra; los cuatro workshops del calendario y las plazas que aparecen ocupadas. Los textos y las fotos de esta web son los tuyos, copiados de resulabrador.com el 15 de septiembre; no hemos escrito ni una frase de publicidad por ti. Esto es una prueba de concepto: no se reserva ninguna plaza, no se cobra nada, no se emite ninguna factura y no sale ningún correo. Todo lo que guardes se queda en este navegador y se borra al vaciarlo."
+    }
+  },
+  "policy": {
+    "es": "Cómo funciona esta demostración. Los precios del curso son los tuyos, los que tienes publicados hoy: 110 € al mes el pack de 4 clases de 2 horas y 145 € el de 3 horas. El horario también es el tuyo: tardes de lunes a viernes de 18:00 a 21:00 y mañanas de martes a jueves de 10:30 a 13:30. Las 3 plazas de torno y las 11 de modelado por clase, la clase suelta entre semana y sábados, el coworking por mesa con 3 mesas y 3 tornos los lunes y viernes por la mañana y los fines de semana, los workshops de viernes a domingo y las recuperaciones en horas son lo que nos contaste el 15 de septiembre. Todo lo demás es un ejemplo y lleva su aviso: los precios de la clase suelta, del coworking y de los workshops, que tú no publicas; las horas exactas de los bloques del fin de semana; los días que damos por cerrados, que son los festivos y el 24, el 25 y el 31 de diciembre; el plazo de 24 horas para anular, los 2 meses de caducidad del saldo y los 10 € de la hora extra; los cuatro workshops del calendario y las plazas que aparecen ocupadas. Los textos y las fotos de esta web son los tuyos, copiados de resulabrador.com el 15 de septiembre; no hemos escrito ni una frase de publicidad por ti. Esto es una prueba de concepto: no se reserva ninguna plaza, no se cobra nada, no se emite ninguna factura y no sale ningún correo. Todo lo que guardes se queda en este navegador y se borra al vaciarlo."
+  },
+  "site": {
+    "_comment": "Her own website, rebuilt inside the same surface as the booking so the two are one thing rather than a calendar bolted onto a WordPress. EVERY WORD ON THESE PAGES IS HERS, copied from resulabrador.com on 2026-09-15: the about text and the three section blurbs from the home page, the catalogue intro and the four category names from /ceramica/catalogo, the course text, the four badges, the prices and the timetable from /clases/curso-de-ceramica, the workshop texts from /talleres, /talleres/adultos and /talleres/infantiles, and the address, hours, phones, mail and socials from her footer. Three obvious typos in her own copy are silently corrected and nothing else is touched: 'dónde podrás encontrar' to 'donde', 'mediante con engobes' to 'con engobes', and a doubled space. Not one sentence of marketing has been written for her. The photographs are hers too, every one she publishes, listed with its source URL under _comment_images.",
+    "seo": {
+      "title": "Resu Labrador · Cerámica en Madrid",
+      "description": "Tienda taller de cerámica en La Guindalera, Madrid. Curso mensual, clases sueltas, coworking y talleres para grupos, con reserva y pago desde la propia web.",
+      "ogImage": "images/hero.jpg",
+      "favicon": "images/logo.png"
+    },
+    "_comment_images": "Where every photograph came from, path to source URL, is the imageSources record at the bottom of this block: 35 files, all downloaded full size from resulabrador.com on 2026-09-15, resized to 1600px on the long side, JPEG q80 progressive, EXIF stripped. It is a validated field rather than a comment so a test can check that nothing ships unsourced. ONE EXCEPTION that must never be undone: images/taller-infantil.jpg is a CROP. Her published frame (2019/10/taller-infantil-de-cerámica-e1572344201864.jpg) shows four identifiable children; what ships is a child's hands painting a bowl and nothing else. A test asserts its dimensions so a re-download cannot quietly restore the wide shot.",
+    "bookLabel": "Reservar",
+    "whatsappLabel": "WhatsApp",
+    "whatsappText": "Hola Resu, te escribo desde la web.",
+    "hero": {
+      "image": {
+        "src": "images/hero.jpg",
+        "width": 1600,
+        "height": 959,
+        "alt": "Piezas de cerámica de Resu Labrador"
+      },
+      "kicker": "Tienda taller de cerámica en La Guindalera, Madrid",
+      "title": "Resu Labrador",
+      "subtitle": "Ceramista",
+      "cta": "Reservar tu plaza"
+    },
+    "about": {
+      "id": "sobre-mi",
+      "title": "Resu Labrador",
+      "image": {
+        "src": "images/curso.jpg",
+        "width": 1600,
+        "height": 1068,
+        "alt": "Resu Labrador trabajando en su taller de cerámica"
+      },
+      "paragraphs": [
+        "Me llamo Resu Labrador y soy ceramista desde hace más de 25 años.",
+        "Me interesa la cerámica utilitaria y por ello desde siempre he trabajado principalmente al torno. Me gusta de igual manera el trabajo mediante moldes, por la maravillosa posibilidad que ofrece de otorgar una nueva vida a simples objetos cotidianos que encuentro, darles otra función convertidos en piezas cerámicas.",
+        "Encuentro inspiración en el estilo minimalista, el arte japonés y los colores planos y mates. Todas estas referencias conforman mi obra y estilo.",
+        "Actualmente gestiono mi propia tienda-taller de cerámica en el centro de Madrid, un estudio abierto a todo el mundo en el que la enseñanza y la creatividad comparten espacio."
+      ]
+    },
+    "doors": [
+      {
+        "id": "curso",
+        "title": "Clases de cerámica",
+        "text": "Aprende a tu ritmo, de las técnicas básicas al torno. Grupos reducidos, todos los niveles y los materiales incluidos.",
+        "image": {
+          "src": "images/banner-clases.jpg",
+          "width": 1600,
+          "height": 902,
+          "alt": "Clases de cerámica en la tienda taller de Resu Labrador"
+        },
+        "to": "curso",
+        "linkLabel": "Ver el curso"
+      },
+      {
+        "id": "talleres",
+        "title": "Talleres",
+        "text": "Talleres especiales para niñas y niños y para personas adultas, en grupos de hasta 8 personas.",
+        "image": {
+          "src": "images/banner-talleres.jpg",
+          "width": 1600,
+          "height": 902,
+          "alt": "Talleres de cerámica de Resu Labrador"
+        },
+        "to": "talleres",
+        "linkLabel": "Ver los talleres"
+      },
+      {
+        "id": "ceramica",
+        "title": "Mi cerámica",
+        "text": "Cuencos, vajillas, bandejas, jarrones y platos, todo hecho a mano en el taller de La Guindalera.",
+        "image": {
+          "src": "images/banner-ceramica.jpg",
+          "width": 1600,
+          "height": 902,
+          "alt": "Piezas de cerámica de Resu Labrador"
+        },
+        "to": "ceramica",
+        "linkLabel": "Ver el catálogo"
+      }
+    ],
+    "pages": [
+      {
+        "id": "",
+        "nav": "Inicio",
+        "title": "Resu Labrador, ceramista en Madrid",
+        "sections": [
+          {
+            "id": "mi-ceramica",
+            "title": "Mi cerámica",
+            "paragraphs": [
+              "Esta es una pequeña muestra de mi trabajo en cerámica, que renuevo regularmente en mi tienda-taller, donde podrás encontrar cuencos, vajillas, bandejas, jarrones, platos y todo tipo de elementos decorativos en cerámica.",
+              "Todas estas piezas están realizadas completamente a mano y de manera artesanal. Algunas de ellas se elaboran según mi propio estilo y otras se realizan bajo pedido y a demanda de cada persona.",
+              "Tanto si quieres una pieza única de cerámica o si buscas una pieza elaborada a tu gusto y en exclusiva para ti, te espero en mi tienda-taller en Madrid. Puedes encontrar mis diferentes variedades de piezas cerámicas a la venta en mi catálogo."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "ceramica",
+        "nav": "Mi cerámica",
+        "title": "Mi catálogo",
+        "banner": {
+          "src": "images/banner-ceramica.jpg",
+          "width": 1600,
+          "height": 902,
+          "alt": "Piezas de cerámica de Resu Labrador"
+        },
+        "intro": [
+          "Esta es una pequeña muestra de mi catálogo, en el que puedes encontrar muchas de mis piezas hechas completamente a mano. Realizo todo tipo de cuencos, ensaladeras, bandejas o platos de cerámica."
+        ],
+        "galleries": [
+          {
+            "id": "vajilla",
+            "name": "Vajilla",
+            "images": [
+              {
+                "src": "images/vajilla-1.jpg",
+                "width": 1200,
+                "height": 857,
+                "alt": "Vajilla. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/vajilla-2.jpg",
+                "width": 1200,
+                "height": 900,
+                "alt": "Vajilla. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/vajilla-3.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Vajilla. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/vajilla-4.jpg",
+                "width": 1200,
+                "height": 801,
+                "alt": "Vajilla. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              }
+            ]
+          },
+          {
+            "id": "cuencos",
+            "name": "Cuencos",
+            "images": [
+              {
+                "src": "images/cuencos-1.jpg",
+                "width": 1200,
+                "height": 1330,
+                "alt": "Cuencos. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/cuencos-2.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Cuencos. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/cuencos-3.jpg",
+                "width": 1080,
+                "height": 1080,
+                "alt": "Cuencos. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/cuencos-4.jpg",
+                "width": 1200,
+                "height": 1233,
+                "alt": "Cuencos. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/cuencos-5.jpg",
+                "width": 1200,
+                "height": 900,
+                "alt": "Cuencos. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/cuencos-6.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Cuencos. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              }
+            ]
+          },
+          {
+            "id": "jarrones",
+            "name": "Jarrones",
+            "images": [
+              {
+                "src": "images/jarrones-1.jpg",
+                "width": 1200,
+                "height": 801,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-2.jpg",
+                "width": 1200,
+                "height": 1200,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-3.jpg",
+                "width": 1200,
+                "height": 1200,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-4.jpg",
+                "width": 1200,
+                "height": 960,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-5.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-6.jpg",
+                "width": 1200,
+                "height": 900,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-7.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-8.jpg",
+                "width": 911,
+                "height": 606,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/jarrones-9.jpg",
+                "width": 1200,
+                "height": 1200,
+                "alt": "Jarrones. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              }
+            ]
+          },
+          {
+            "id": "ensaladeras",
+            "name": "Ensaladeras",
+            "images": [
+              {
+                "src": "images/ensaladeras-1.jpg",
+                "width": 1200,
+                "height": 1200,
+                "alt": "Ensaladeras. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/ensaladeras-2.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Ensaladeras. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/ensaladeras-3.jpg",
+                "width": 1200,
+                "height": 1200,
+                "alt": "Ensaladeras. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/ensaladeras-4.jpg",
+                "width": 1200,
+                "height": 900,
+                "alt": "Ensaladeras. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/ensaladeras-5.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Ensaladeras. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              },
+              {
+                "src": "images/ensaladeras-6.jpg",
+                "width": 1200,
+                "height": 1600,
+                "alt": "Ensaladeras. Cerámica de Resu Labrador, hecha a mano en su tienda taller de Madrid"
+              }
+            ]
+          }
+        ],
+        "sections": [
+          {
+            "id": "encargos",
+            "paragraphs": [
+              "Esta es sólo una pequeña muestra de mis últimas piezas de cerámica, pero puedes encontrar muchas más en mi tienda-taller en Madrid.",
+              "Además, realizo y decoro piezas personalizadas y por encargo, especialmente juegos infantiles."
+            ]
+          }
+        ],
+        "notes": [
+          {
+            "title": "Cerámica personalizada",
+            "text": "Piezas únicas pintadas a mano según tus gustos para celebraciones o regalos especiales.",
+            "icon": {
+              "src": "images/icono-personalizada.png",
+              "width": 200,
+              "height": 180,
+              "alt": ""
+            }
+          },
+          {
+            "title": "Juegos infantiles",
+            "text": "Juegos de piezas personalizadas, pintadas a mano con motivos especiales para niños y niñas. Un estupendo regalo para cumpleaños.",
+            "icon": {
+              "src": "images/icono-infantiles.png",
+              "width": 200,
+              "height": 181,
+              "alt": ""
+            }
+          }
+        ]
+      },
+      {
+        "id": "curso",
+        "nav": "Curso de cerámica",
+        "title": "Curso de cerámica",
+        "banner": {
+          "src": "images/banner-clases.jpg",
+          "width": 1600,
+          "height": 902,
+          "alt": "Clases de cerámica en la tienda taller de Resu Labrador"
+        },
+        "intro": [
+          "Con paciencia, todas las personas pueden aprender a hacer cerámica. Es por ello que ofrezco este curso de cerámica en el centro de Madrid, muy cerca de Avenida de América. Es válido para todos los niveles.",
+          "Una experiencia única que te aportará el inigualable placer del trabajo manual. Te ayudará a dejarte llevar y crear piezas únicas con tus propias manos."
+        ],
+        "sections": [
+          {
+            "id": "como-es",
+            "image": {
+              "src": "images/curso.jpg",
+              "width": 1600,
+              "height": 1068,
+              "alt": "Resu Labrador trabajando en su taller de cerámica"
+            },
+            "features": [
+              "Grupos reducidos",
+              "Horario flexible",
+              "Todos los niveles",
+              "Materiales incluidos"
+            ],
+            "paragraphs": [
+              "Aprende a tu ritmo en las clases de cerámica de mi tienda-taller en Madrid. Primero aprenderás las técnicas básicas para el modelado de piezas sencillas como los churros, planchas, pellizco, colada y poco a poco podrás avanzar hasta la creación de piezas más complejas con el empleo de torno de alfarería.",
+              "Aprenderás diferentes técnicas para el decorado de tus propias piezas de cerámica, con engobes, esmaltes, esgrafiados, relieves y mucho más.",
+              "En todo momento contarás con mi ayuda y consejo. Supervisaré y apoyaré tu proceso de aprendizaje del manejo de la cerámica para que disfrutes de él al máximo.",
+              "Todas las herramientas y los materiales que necesites para aprender están incluidos en el precio de las clases de cerámica y, por supuesto, las piezas que hayas creado durante el proceso te las podrás llevar a casa.",
+              "El taller cuenta con horno de alta temperatura y todas las facilidades, así que son útiles tanto si eres ceramista avanzado o avanzada y necesitas ayuda con algún aspecto concreto como si estás empezando con la cerámica desde cero."
+            ]
+          },
+          {
+            "id": "horario",
+            "title": "Horario de clases",
+            "paragraphs": [
+              "Tardes: lunes, martes, miércoles, jueves y viernes de 18:00h a 21:00h.",
+              "Mañanas: martes, miércoles y jueves de 10:30h a 13:30h.",
+              "Dentro de este horario, podrás venir cuando mejor te convenga según disponibilidad y la duración de las clases que hayas elegido."
+            ]
+          }
+        ],
+        "booking": [
+          "curso",
+          "suelta"
+        ],
+        "bookingLead": "Los dos precios del curso son los que tienes publicados hoy en tu web: 110 € al mes el pack de 4 clases de 2 horas y 145 € el de 3 horas."
+      },
+      {
+        "id": "talleres",
+        "nav": "Talleres",
+        "title": "Talleres",
+        "banner": {
+          "src": "images/banner-talleres.jpg",
+          "width": 1600,
+          "height": 902,
+          "alt": "Talleres de cerámica de Resu Labrador"
+        },
+        "intro": [
+          "Organizo talleres especiales de cerámica tanto para niños y niñas como para personas adultas. Una estupenda manera de celebrar encuentros de amigas o amigos, cumpleaños, actividades de empresa, fiestas o cualquier ocasión que se os ocurra."
+        ],
+        "sections": [
+          {
+            "id": "adultos",
+            "title": "Talleres para adultos",
+            "image": {
+              "src": "images/taller-adultos.jpg",
+              "width": 1200,
+              "height": 800,
+              "alt": "Taller de cerámica para adultos en la tienda taller de Resu Labrador"
+            },
+            "features": [
+              "Grupos reducidos",
+              "Horario flexible",
+              "Todos los niveles",
+              "Materiales incluidos"
+            ],
+            "paragraphs": [
+              "Los talleres de cerámica para adultos están dirigidos a grupos de hasta 8 personas que quieran celebrar un encuentro enfocado a la creatividad y la creación.",
+              "Son perfectos para equipos de trabajo en empresas que quieran realizar sesiones de team building que ayuden a la compenetración del grupo. Un buen team building en torno a una actividad creativa como la cerámica ayuda a los integrantes a mejorar sus relaciones tanto personales como laborales, potencia el espíritu de equipo y ayuda en la cooperación, el rendimiento y los resultados laborales.",
+              "Este tipo de actividades es preferible realizarlas fuera del entorno laboral para conseguir que los participantes realmente se sientan liberados de tensiones y se relacionen y realicen la actividad sin ningún tipo de presión.",
+              "Este taller también es idóneo para la celebración de encuentros entre amigos y amigas, celebraciones de cumpleaños, fiestas, etc.",
+              "Una actividad divertida, relajante y creativa, en la que podréis modelar vuestras propias piezas de cerámica o decorar piezas ya creadas mediante diversas técnicas. Todas las creaciones, después de cocidas, se podrán recoger en la tienda-taller para llevar a casa."
+            ]
+          },
+          {
+            "id": "infantiles",
+            "title": "Talleres infantiles",
+            "image": {
+              "src": "images/taller-infantil.jpg",
+              "width": 533,
+              "height": 400,
+              "alt": "Manos de una niña decorando un cuenco en un taller infantil"
+            },
+            "features": [
+              "Grupos reducidos",
+              "Horario flexible",
+              "Todos los niveles",
+              "Materiales incluidos"
+            ],
+            "paragraphs": [
+              "Los talleres de cerámica para niños y niñas son espacios de creación y diversión.",
+              "Durante estos talleres desarrollan la creatividad, probando formas, texturas y colores. Se crean piezas únicas que serán luego horneadas y esmaltadas garantizando un buen resultado final.",
+              "Una actividad divertida, relajante y creativa, en la que podrán modelar sus propias piezas de cerámica o decorar piezas ya creadas mediante diversas técnicas. Todas las creaciones, después de cocidas, se podrán recoger en la tienda-taller para llevar a casa.",
+              "Estos talleres de cerámica infantiles son una manera perfecta de celebrar una fiesta de cumpleaños, encuentros familiares o sencillamente, de que pasen una mañana agradable y creativa.",
+              "Estos talleres de cerámica son para niños y niñas a partir de 8 años en horario de mañana o de tarde."
+            ]
+          }
+        ],
+        "booking": [
+          "workshop",
+          "coworking"
+        ],
+        "bookingLead": "Los workshops del calendario y el coworking se reservan desde aquí. Los días son los que nos contaste; los temas y los precios son un ejemplo."
+      },
+      {
+        "id": "contacto",
+        "nav": "Contacto",
+        "title": "Contacto",
+        "intro": [
+          "La tienda-taller está en La Guindalera, muy cerca de Avenida de América. Escríbeme, llámame o pásate por el taller en horario de apertura."
+        ]
+      }
+    ],
+    "contact": {
+      "name": "Resu Labrador | Ceramista",
+      "address": "Calle Pilar de Zaragoza, 84",
+      "area": "La Guindalera, 28028 Madrid",
+      "hours": [
+        {
+          "days": "De lunes a viernes",
+          "times": [
+            "10:00 a 13:30",
+            "17:30 a 21:00"
+          ]
+        }
+      ],
+      "phone": "620 09 68 42",
+      "phoneHref": "+34620096842",
+      "phoneAlt": "678 55 52 01",
+      "phoneAltHref": "+34678555201",
+      "phoneAltLabel": "Para talleres y presupuestos",
+      "whatsapp": "34620096842",
+      "email": "resulabrador@gmail.com",
+      "instagram": "https://www.instagram.com/resu.ceramica/",
+      "instagramHandle": "@resu.ceramica",
+      "facebook": "https://www.facebook.com/resulabradorceramica/",
+      "maps": "https://www.google.com/maps/search/?api=1&query=Calle+del+Pilar+de+Zaragoza+84+28028+Madrid",
+      "mapsLabel": "Ver en Google Maps"
+    },
+    "imageSources": {
+      "images/banner-ceramica.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/mi-ceramica.jpg",
+      "images/banner-clases.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/clases-de-ceramica.jpg",
+      "images/banner-talleres.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/talleres.jpg",
+      "images/cuencos-1.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/ceramica-julio-2018-095-e1587162735151.jpg",
+      "images/cuencos-2.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20170605_123233-e1587162726706.jpg",
+      "images/cuencos-3.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20180309_175555_330.jpg",
+      "images/cuencos-4.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20170928_103217-e1587162744202.jpg",
+      "images/cuencos-5.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20170605_122043_BURST002-e1576100400476.jpg",
+      "images/cuencos-6.jpg": "https://resulabrador.com/wp-content/uploads/2020/02/IMG-20190730-WA0002.jpg",
+      "images/curso.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/DMA3375-e1587162912436.jpg",
+      "images/ensaladeras-1.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/031-e1587162715624.jpg",
+      "images/ensaladeras-2.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20180329_134944-e1576100434123.jpg",
+      "images/ensaladeras-3.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20170925_120220_310-e1576100417842.jpg",
+      "images/ensaladeras-4.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20170917_130505-e1587162707795.jpg",
+      "images/ensaladeras-5.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20180330_124806-e1576100457416.jpg",
+      "images/ensaladeras-6.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20180330_120900-e1576100446631.jpg",
+      "images/hero.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/cropped-DSC00370.jpg",
+      "images/icono-infantiles.png": "https://resulabrador.com/wp-content/uploads/2019/12/diseños-ceramicas-06-e1577056221802.png",
+      "images/icono-personalizada.png": "https://resulabrador.com/wp-content/uploads/2019/12/diseños-ceramicas-07-e1577056211936.png",
+      "images/jarrones-1.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/DMA3516-1-e1576100346292.jpg",
+      "images/jarrones-2.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/ceramica-julio-2018-098-e1576100392234.jpg",
+      "images/jarrones-3.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20171106_132742_189-e1576100425266.jpg",
+      "images/jarrones-4.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/DMA3504-e1576100331674.jpg",
+      "images/jarrones-5.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20181218_113300-1-e1576100523508.jpg",
+      "images/jarrones-6.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/IMG_20170610_122918_BURST002-e1576100409335.jpg",
+      "images/jarrones-7.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/ceramica-julio-2018-002-e1576100365538.jpg",
+      "images/jarrones-8.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/unnamed9-e1576100542234.jpg",
+      "images/jarrones-9.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/ceramica-julio-2018-020-e1576100374241.jpg",
+      "images/logo.png": "https://resulabrador.com/wp-content/uploads/2019/09/cropped-Resu-Labrador-Logo-cuadrado-01-1.png",
+      "images/taller-adultos.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/taller-de-cerámica-para-adultos.jpg",
+      "images/taller-infantil.jpg": "https://resulabrador.com/wp-content/uploads/2019/10/taller-infantil-de-cerámica-e1572344201864.jpg (recortada: el encuadre completo muestra cuatro caras de niñas y niños)",
+      "images/vajilla-1.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/DMA3522-e1576100355165.jpg",
+      "images/vajilla-2.jpg": "https://resulabrador.com/wp-content/uploads/2020/02/20191105_120808-e1587162684936.jpg",
+      "images/vajilla-3.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/ceramica-julio-2018-026-e1576100383255.jpg",
+      "images/vajilla-4.jpg": "https://resulabrador.com/wp-content/uploads/2019/12/DMA3521-2-e1576100965448.jpg"
+    }
+  }
+}
